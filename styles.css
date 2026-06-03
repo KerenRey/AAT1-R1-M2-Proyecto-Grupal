@@ -1,17 +1,74 @@
 body {
-    font-family: Arial;
-    padding: 20px;
-    background-color: #74b1e9;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #ECECEC;
+    color: #7FA173;
 }
 
-#contenedor-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+/* Header pequeño */
+.top-header {
+    background-color: #1D3428;
+    padding: 10px 20px;
+}
+
+.btn-home {
+    color: #7FA173;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-home:hover {
+    text-decoration: underline;
+}
+
+/* Sección principal */
+.eventos-header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.eventos-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.eventos-header p {
+    color: #7FA173;
+    margin-bottom: 30px;
+}
+
+/* Filtros */
+.filtros {
+    display: flex;
+    justify-content: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
-.card {
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+/* Ordenar */
+.ordenar select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: #7FA173;
+    color: #1D3428;
 }
+
+/* Busqueda */
+.busqueda input {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    width: 200px;
+    background-color: #7FA173;
+    color: #ffffff;
+}
+
+/*  Hover  
+
+.busqueda input:focus,
+.ordenar select:focus {
+    outline: 2px solid #38bdf8;
+} */
+
+
