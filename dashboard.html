@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Eventos Universitarios</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Librería Chart.js -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Dashboard de Eventos Universitarios</h1>
+    </header>
+
+    <main>
+
+     
+        <!-- TABLA DE INSCRITOS -->
+    
+        <section>
+
+            <h2>Tabla de Inscritos</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Carrera</th>
+                        <th>Evento</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tablaInscritos">
+                   
+
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+       
+        <!-- CONTADORES -->
+       
+
+        <section class="contadores">
+
+            <h2>Contadores</h2>
+
+            <div class="card">
+                <h3 id="totalInscritos">0</h3>
+                <p>Total de Inscritos</p>
+            </div>
+
+            <div class="card">
+                <h3 id="totalEventos">0</h3>
+                <p>Total de Eventos</p>
+            </div>
+
+            <div class="card">
+                <h3 id="totalCarreras">0</h3>
+                <p>Total de Carreras</p>
+            </div>
+
+        </section>
+
+
+        
+        <!-- GRÁFICA -->
+       
+
+        <section>
+
+            <h2>Gráfica de Inscritos por Evento</h2>
+
+            <canvas id="graficaEventos"></canvas>
+
+        </section>
+
+
+       
+        <!-- INDICADORES -->
+       
+
+        <section class="indicadores">
+
+            <h2>Indicadores</h2>
+
+            <div class="card">
+                <h3>Evento más popular</h3>
+                <p id="eventoPopular">-</p>
+            </div>
+
+            <div class="card">
+                <h3>Último inscrito</h3>
+                <p id="ultimoInscrito">-</p>
+            </div>
+
+            <div class="card">
+                <h3>Carrera con más inscritos</h3>
+                <p id="carreraPopular">-</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>
