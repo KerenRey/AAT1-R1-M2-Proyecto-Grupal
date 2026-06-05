@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Plataforma de gestión de eventos universitarios">
   <title>Dashboard - Eventos Universitarios</title>
 
- <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 
-    <!-- Librería Chart.js -->
+  <!-- Librería Chart.js -->
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
+
 <body>
 
   <!-- Skip Link para accesibilidad -->
@@ -21,7 +23,7 @@
   <!-- HEADER -->
   <header class="header" role="banner">
     <nav class="nav container" role="navigation" aria-label="Navegación principal">
-      
+
       <div class="nav__brand">
         <div class="nav__logo" aria-hidden="true"></div>
         <span class="nav__brand-text">Full Stack</span>
@@ -39,7 +41,8 @@
       <div class="nav__actions">
         <a href="#login" class="nav__btn nav__btn--login">Iniciar Sesión</a>
         <a href="#registro" class="nav__btn nav__btn--register">Registrarse</a>
-        <button class="nav__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+        <button class="nav__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false"
+          aria-controls="navMenu">
           <span class="hamburger__line"></span>
           <span class="hamburger__line"></span>
           <span class="hamburger__line"></span>
@@ -49,130 +52,127 @@
     </nav>
   </header>
 
+  <!-- DASHBOARD -->
+
+  <section class="titulo-dashboard">
+    <h1>Dashboard de Eventos Universitarios</h1>
+  </section>
+
+  <main>
+
+
+    <!-- TABLA DE INSCRITOS -->
+
+    <section>
+
+      <h2>Tabla de Inscritos</h2>
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Carrera</th>
+            <th>Evento</th>
+          </tr>
+        </thead>
+
+        <tbody id="tablaInscritos">
 
 
 
-  
-    <section class="titulo-dashboard">
-        <h1>Dashboard de Eventos Universitarios</h1>
+        </tbody>
+
+      </table>
+
     </section>
 
-    <main>
-
-     
-        <!-- TABLA DE INSCRITOS -->
-    
-        <section>
-
-            <h2>Tabla de Inscritos</h2>
-
-            <table>
-
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Carrera</th>
-                        <th>Evento</th>
-                    </tr>
-                </thead>
-
-                <tbody id="tablaInscritos">
-                   
 
 
-                </tbody>
-
-            </table>
-
-        </section>
+    <!-- CONTADORES -->
 
 
-       
-        <!-- CONTADORES -->
-       
+    <section class="contadores">
 
-        <section class="contadores">
+      <h2>Contadores</h2>
 
-            <h2>Contadores</h2>
+      <div class="card">
+        <h3 id="totalInscritos">0</h3>
+        <p>Total de Inscritos</p>
+      </div>
 
-            <div class="card">
-                <h3 id="totalInscritos">0</h3>
-                <p>Total de Inscritos</p>
-            </div>
+      <div class="card">
+        <h3 id="totalEventos">0</h3>
+        <p>Total de Eventos</p>
+      </div>
 
-            <div class="card">
-                <h3 id="totalEventos">0</h3>
-                <p>Total de Eventos</p>
-            </div>
+      <div class="card">
+        <h3 id="totalCarreras">0</h3>
+        <p>Total de Carreras</p>
+      </div>
 
-            <div class="card">
-                <h3 id="totalCarreras">0</h3>
-                <p>Total de Carreras</p>
-            </div>
-
-        </section>
+    </section>
 
 
-        
-        <!-- GRÁFICA -->
-       
 
-        <section>
-
-            <h2>Gráfica de Inscritos por Evento</h2>
-
-            <canvas id="graficaEventos"></canvas>
-
-        </section>
+    <!-- GRÁFICA -->
 
 
-<!-- INDICADORES -->
+    <section class="grafica">
 
-<section class="indicadores">
+      <h2>Gráfica de Inscritos por Evento</h2>
 
-    <h2>Indicadores</h2>
+      <div class="contenedor-grafica">
+        <canvas id="graficaEventos"></canvas>
+      </div>
 
-    <div class="card">
+    </section>
+
+
+    <!-- INDICADORES -->
+
+    <section class="indicadores">
+
+      <h2>Indicadores</h2>
+
+      <div class="card">
         <h3>Evento más popular</h3>
         <p id="eventoPopular">-</p>
-    </div>
+      </div>
 
-    <div class="card">
+      <div class="card">
         <h3>Último inscrito</h3>
         <p id="ultimoInscrito">-</p>
-    </div>
+      </div>
 
-    <div class="card">
+      <div class="card">
         <h3>Carrera con más inscritos</h3>
         <p id="carreraPopular">-</p>
-    </div>
+      </div>
 
-    <div class="card">
+      <div class="card">
         <h3>Promedio de inscritos por evento</h3>
         <p id="promedioInscritos">-</p>
-    </div>
+      </div>
 
-    <div class="card">
+      <div class="card">
         <h3>Evento con menos inscritos</h3>
         <p id="eventoMenosPopular">-</p>
-    </div>
+      </div>
 
-    <div class="card">
+      <div class="card">
         <h3>Primer inscrito registrado</h3>
         <p id="primerInscrito">-</p>
-    </div>
+      </div>
 
-</section>
+    </section>
 
-    </main>
-
-   
-
+  </main>
 
   <!--  FOOTER  -->
   <footer class="footer" id="contacto" role="contentinfo">
     <div class="footer__container container">
-      
+
       <div class="footer__grid">
 
         <div class="footer__brand">
@@ -181,22 +181,28 @@
             <span class="footer__brand-name">Full Stack | Intecap</span>
           </div>
           <p class="footer__brand-description">
-            La plataforma líder en gestión de eventos universitarios. Conectamos estudiantes, organizadores y oportunidades de crecimiento.
+            La plataforma líder en gestión de eventos universitarios. Conectamos estudiantes, organizadores y
+            oportunidades de crecimiento.
           </p>
           <div class="footer__social" aria-label="Redes sociales">
-            <a href="https://facebook.com" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <a href="https://facebook.com" class="footer__social-link" aria-label="Facebook" target="_blank"
+              rel="noopener noreferrer">
               <span aria-hidden="true">📘</span>
             </a>
-            <a href="https://twitter.com" class="footer__social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+            <a href="https://twitter.com" class="footer__social-link" aria-label="Twitter" target="_blank"
+              rel="noopener noreferrer">
               <span aria-hidden="true">🐦</span>
             </a>
-            <a href="https://instagram.com" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <a href="https://instagram.com" class="footer__social-link" aria-label="Instagram" target="_blank"
+              rel="noopener noreferrer">
               <span aria-hidden="true">📷</span>
             </a>
-            <a href="https://linkedin.com" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <a href="https://linkedin.com" class="footer__social-link" aria-label="LinkedIn" target="_blank"
+              rel="noopener noreferrer">
               <span aria-hidden="true">💼</span>
             </a>
-            <a href="https://youtube.com" class="footer__social-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+            <a href="https://youtube.com" class="footer__social-link" aria-label="YouTube" target="_blank"
+              rel="noopener noreferrer">
               <span aria-hidden="true"></span>
             </a>
           </div>
@@ -249,8 +255,9 @@
 
     </div>
 
-     <script src=""></script>
+    <script src=""></script>
   </footer>
 
 </body>
+
 </html>
