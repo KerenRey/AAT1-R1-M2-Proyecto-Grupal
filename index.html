@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
@@ -23,7 +22,9 @@
             <label for="orden">Ordenar por:</label>
             <select id="orden">
                 <option value="todos">Todos</option>
-                <option value="categoria">Categoría</option>
+                <option value="Tecnologia">Tecnologia</option>
+                <option value="Administracion">Administracion</option>
+                <option value="Salud">Salud</option>
                 <option value="precio">Precio</option>
                 <option value="diplomado">Con Diplomado</option>
             </select>
@@ -51,9 +52,9 @@
 
             <!-- EVENTO 1: DESARROLLO WEB FRONTEND -->
 
-            <div class="card">
+            <div class="card card-evento" data-categoria="Tecnologia" data-precio="1400" data-diplomado="true">
                 <img src="img/1.png" alt="Evento1">
-                <h3>Desarrollo Web Frontend</h3>
+                <h3 class="titulo-evento">Desarrollo Web Frontend</h3>
                 <p>Aprende a crear sitios web modernos e interactivos utilizando HTML, CSS y JavaScript. El curso cubre
                     diseño responsivo, manipulación del DOM y buenas prácticas para el desarrollo web.</p>
 
@@ -99,9 +100,9 @@
 
             <!-- EVENTO 2: INTRODUCCIÓN A PYTHON PARA PRINCIPIANTES -->
 
-            <div class="card">
+            <div class="card card-evento" data-categoria="Tecnologia" data-precio="850" data-diplomado="false">
                 <img src="img/2.png" alt="Evento1">
-                <h3>Introducción a Python para Principiantes</h3>
+                <h3 class="titulo-evento">Introducción a Python para Principiantes</h3>
                 <p>Conoce los fundamentos de la programación mediante Python, uno de los lenguajes más populares del
                     mundo. Aprenderás variables, estructuras de control, funciones y manejo básico de datos.</p>
 
@@ -127,9 +128,9 @@
 
                 </div>
 
-                <div class="diploma">
+                <!-- <div class="diploma">
                     <span class="titulo">📜​ Incluye Diploma</span>
-                </div>
+                </div> -->
 
                 <div class="costo">
                     <img src="img/tarjeta-de-credito.png" alt="">
@@ -147,9 +148,9 @@
             <!-- EVENTO 3: FUNDAMENTOS DE CIBERSEGURIDAD -->
 
 
-            <div class="card">
+            <div class="card card-evento" data-categoria="Tecnologia" data-precio="650" data-diplomado="true">
                 <img src="img/3.png" alt="Evento1">
-                <h3>Fundamentos de Ciberseguridad</h3>
+                <h3 class="titulo-evento">Fundamentos de Ciberseguridad</h3>
                 <p>Descubre los principios básicos de la seguridad informática, incluyendo protección de datos,
                     prevención de ataques cibernéticos y buenas prácticas para mantener sistemas y redes seguras.</p>
 
@@ -197,9 +198,9 @@
 
             <!-- EVENTO 1: GESTIÓN DE RECURSOS HUMANOS   -->
 
-            <div class="card">
+            <div class="card card-evento" data-categoria="Administracion" data-precio="1000" data-diplomado="false">
                 <img src="img/4.png" alt="Evento1">
-                <h3>Gestión de Recursos Humanos</h3>
+                <h3 class="titulo-evento">Gestión de Recursos Humanos</h3>
                 <p>Aprende las técnicas y estrategias para la administración del talento humano dentro de las
                     organizaciones. El curso aborda procesos de reclutamiento, selección, capacitación y evaluación del
                     desempeño.</p>
@@ -226,9 +227,9 @@
 
                 </div>
 
-                <div class="diploma">
+                <!-- <div class="diploma">
                     <span class="titulo">📜​ Incluye Diploma</span>
-                </div>
+                </div> -->
 
                 <div class="costo">
                     <img src="img/tarjeta-de-credito.png" alt="">
@@ -245,9 +246,9 @@
             <!-- EVENTO2: FINANZAS EMPRESARIALES  -->
 
 
-            <div class="card">
+            <div class="card card-evento" data-categoria="Administracion" data-precio="1900" data-diplomado="true">
                 <img src="img/5.png" alt="Evento1">
-                <h3>Finanzas Empresariales</h3>
+                <h3 class="titulo-evento">Finanzas Empresariales</h3>
                 <p>Desarrolla conocimientos sobre la gestión financiera de una empresa, incluyendo presupuestos,
                     análisis de inversiones, estados financieros y toma de decisiones económicas.</p>
 
@@ -292,9 +293,9 @@
             <!-- EVENTO3: MARKETING ESTRATÉGICO  -->
 
 
-            <div class="card">
+            <div class="card card-evento" data-categoria="Administracion" data-precio="1200" data-diplomado="true">
                 <img src="img/6.png" alt="Evento1">
-                <h3>Marketing Estratégico</h3>
+                <h3 class="titulo-evento">Marketing Estratégico</h3>
                 <p>Estudia los principios del marketing moderno, la investigación de mercados y el diseño de estrategias
                     para posicionar productos y servicios de manera efectiva.</p>
 
@@ -341,9 +342,9 @@
             <!-- EVENTO 1: PSICOLOGÍA DEL COMPORTAMIENTO HUMANO -->
 
 
-            <div class="card">
+            <div class="card card-evento" data-categoria="Salud" data-precio="1150" data-diplomado="true">
                 <img src="img/7.png" alt="Evento1">
-                <h3>Psicología del Comportamiento Humano</h3>
+                <h3 class="titulo-evento">Psicología del Comportamiento Humano</h3>
                 <p>Analiza los procesos psicológicos que influyen en la conducta humana, las emociones, la motivación y
                     las relaciones interpersonales en distintos contextos.</p>
 
@@ -390,9 +391,9 @@
             <!-- EVENTO 2: NUTRICIÓN Y ALIMENTACIÓN SALUDABLE -->
 
 
-            <div class="card">
+            <div class="card card-evento" data-categoria="Salud" data-precio="550" data-diplomado="false">
                 <img src="img/8.png" alt="Evento1">
-                <h3>Nutrición y Alimentación Saludable</h3>
+                <h3 class="titulo-evento">Nutrición y Alimentación Saludable</h3>
                 <p>Conoce los fundamentos de una alimentación equilibrada, los grupos de nutrientes y su impacto en la
                     salud y calidad de vida de las personas.</p>
 
@@ -418,9 +419,9 @@
 
                 </div>
 
-                <div class="diploma">
+                <!-- <div class="diploma">
                     <span class="titulo">📜​ Incluye Diploma</span>
-                </div>
+                </div> -->
 
                 <div class="costo">
                     <img src="img/tarjeta-de-credito.png" alt="">
@@ -436,9 +437,9 @@
 
             <!-- EVENTO 3: PRIMEROS AUXILIOS Y ATENCIÓN DE EMERGENCIAS -->
 
-            <div class="card">
+            <div class="card card-evento" data-categoria="Salud" data-precio="700" data-diplomado="false">
                 <img src="img/9.png" alt="Evento1">
-                <h3>Primeros Auxilios y Atención de Emergencias</h3>
+                <h3 class="titulo-evento">Primeros Auxilios y Atención de Emergencias</h3>
                 <p>Aprende a actuar de manera adecuada ante situaciones de emergencia, aplicando técnicas básicas de
                     atención prehospitalaria y soporte vital.</p>
 
@@ -464,9 +465,9 @@
 
                 </div>
 
-                <div class="diploma">
+                <!-- <div class="diploma">
                     <span class="titulo">📜​ Incluye Diploma</span>
-                </div>
+                </div> -->
 
                 <div class="costo">
                     <img src="img/tarjeta-de-credito.png" alt="">
@@ -479,82 +480,9 @@
 
 
             </div>
-
-
-
-
-
-
-
-
         </section>
+
+        <script src="script.js"></script>
   
 </body>
 </html>
-=======
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalogo de Eventos</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <h1>Catálogo de Eventos</h1>
-
-    <div class="evento">
-    <h2>Base de Datos</h2>
-    <p>Precio: 50 €</p>
-</div>
-
-<div class="evento">
-    <h2>Introducción a JavaScript</h2>
-    <p>Precio: 30 €</p>
-</div>
-
-<div class="evento">
-    <h2>Ciberseguridad Básica</h2>
-    <p>Precio: 100 €</p>
-</div>
-
-<div class="evento">
-    <h2>Taller de Postres</h2>
-    <p>Precio: 75 €</p>
-</div>
-
-<div class="evento">
-    <h2>Panadería Artesanal</h2>
-    <p>Precio: 120 €</p>
-</div>
-
-<div class="evento">
-    <h2>Comida Japonesa</h2>
-    <p>Precio: 90 €</p>
-</div>
-
-<div class="evento">
-    <h2>Escritura Creativa</h2>
-    <p>Precio: 60 €</p>
-</div>
-
-<div class="evento">
-    <h2>Dibujo Técnico</h2>
-    <p>Precio: 80 €</p>
-</div>
-
-<div class="evento">
-    <h2>Pintura para Principiantes</h2>
-    <p>Precio: 95 €</p>
-</div>
-
-<div id="paginacion">
-    <button>1</button>
-    <button>2</button>
-    <button>3</button>
-</div>
-
-    <script src="script.js"></script>
-
-</body>
-</html>
-   
->>>>>>> 9794d2e (Catalogo de eventos terminado)
