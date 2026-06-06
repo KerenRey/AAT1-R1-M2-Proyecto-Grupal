@@ -8,24 +8,24 @@
 }
 
 :root {
-  --color-primary: #2563eb;
-  --color-primary-light: #dbeafe;
-  --color-secondary: #64748b;
-  --color-bg: #f1f5f9;
+  --color-primary: #1D3428;
+  --color-primary-light: #759669;
+  --color-secondary: #7FA173;
+  --color-bg: #ECECEC;
   --color-white: #ffffff;
-  --color-border: #e2e8f0;
-  --color-text: #1e293b;
-  --color-text-muted: #64748b;
-  --color-success: #16a34a;
-  --color-success-light: #dcfce7;
+  --color-border: #A5BEB4;
+  --color-text: #1D3428;
+  --color-text-muted: #5e7c53;
+  --color-success: #7FA173;
+  --color-success-light: #CCD6DA;
   --color-warning: #d97706;
   --color-warning-light: #fef3c7;
   --color-danger: #dc2626;
   --color-danger-light: #fee2e2;
-  --color-info: #0891b2;
-  --color-info-light: #cffafe;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --color-info: #759669;
+  --color-info-light: #A5BEB4;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
   --radius: 10px;
   --radius-sm: 6px;
 }
@@ -50,6 +50,7 @@ body {
   padding: 8px;
   z-index: 100;
 }
+
 .skip-link:focus {
   top: 0;
 }
@@ -58,7 +59,7 @@ body {
    HEADER / NAV
    ================================================ */
 .header {
-  background: var(--color-white);
+  background: var(--color-primary);
   border-bottom: 1px solid var(--color-border);
   position: sticky;
   top: 0;
@@ -91,14 +92,14 @@ body {
 .nav__logo {
   width: 36px;
   height: 36px;
-  background: var(--color-primary);
-  border-radius: var(--radius-sm);
+  background: var(--color-secondary);
+  border-radius: 50%;
 }
 
 .nav__brand-text {
   font-weight: 700;
   font-size: 17px;
-  color: var(--color-text);
+  color: white;
 }
 
 .nav__menu {
@@ -109,7 +110,7 @@ body {
 
 .nav__link {
   text-decoration: none;
-  color: var(--color-text-muted);
+  color: white;
   padding: 6px 12px;
   border-radius: var(--radius-sm);
   font-size: 14px;
@@ -117,8 +118,8 @@ body {
 }
 
 .nav__link:hover {
-  background: var(--color-primary-light);
-  color: var(--color-primary);
+  background: var(--color-secondary);
+  color: white;
 }
 
 .nav__actions {
@@ -137,21 +138,22 @@ body {
 }
 
 .nav__btn--login {
-  color: var(--color-primary);
-  border: 1px solid var(--color-primary);
+  color: white;
+  border: 1px solid white;
 }
 
 .nav__btn--login:hover {
-  background: var(--color-primary-light);
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
 }
 
 .nav__btn--register {
-  background: var(--color-primary);
+  background: var(--color-secondary);
   color: white;
 }
 
 .nav__btn--register:hover {
-  background: #1d4ed8;
+  background: #5e7c53;
 }
 
 .nav__hamburger {
@@ -167,7 +169,7 @@ body {
 .hamburger__line {
   width: 24px;
   height: 2px;
-  background: var(--color-text);
+  background: white;
   border-radius: 2px;
 }
 
@@ -175,7 +177,7 @@ body {
    TÍTULO DASHBOARD
    ================================================ */
 .titulo-dashboard {
-  background: linear-gradient(135deg, #1e40af, #2563eb);
+  background: linear-gradient(135deg, #15261d, #1D3428);
   color: white;
   padding: 2.5rem 2rem;
   text-align: center;
@@ -216,7 +218,7 @@ main section h2 {
   color: var(--color-text);
   margin-bottom: 1.25rem;
   padding-bottom: 0.75rem;
-  border-bottom: 2px solid var(--color-primary-light);
+  border-bottom: 2px solid #CCD6DA;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -266,7 +268,7 @@ tbody tr:last-child td {
 }
 
 tbody tr:hover {
-  background: var(--color-primary-light);
+  background: #CCD6DA;
   transition: background 0.15s;
 }
 
@@ -361,19 +363,36 @@ tbody tr:hover {
 }
 
 /* Colores para indicadores */
-.indicadores .card:nth-child(2) { border-left: 3px solid var(--color-primary); }
-.indicadores .card:nth-child(3) { border-left: 3px solid var(--color-success); }
-.indicadores .card:nth-child(4) { border-left: 3px solid var(--color-warning); }
-.indicadores .card:nth-child(5) { border-left: 3px solid var(--color-info); }
-.indicadores .card:nth-child(6) { border-left: 3px solid var(--color-danger); }
-.indicadores .card:nth-child(7) { border-left: 3px solid #7c3aed; }
+.indicadores .card:nth-child(2) {
+  border-left: 3px solid var(--color-primary);
+}
+
+.indicadores .card:nth-child(3) {
+  border-left: 3px solid var(--color-success);
+}
+
+.indicadores .card:nth-child(4) {
+  border-left: 3px solid var(--color-warning);
+}
+
+.indicadores .card:nth-child(5) {
+  border-left: 3px solid var(--color-info);
+}
+
+.indicadores .card:nth-child(6) {
+  border-left: 3px solid var(--color-danger);
+}
+
+.indicadores .card:nth-child(7) {
+  border-left: 3px solid #5e7c53;
+}
 
 /* ================================================
    FOOTER
    ================================================ */
 .footer {
-  background: #1e293b;
-  color: #cbd5e1;
+  background: #1D3428;
+  color: #A5BEB4;
   margin-top: 2rem;
   padding-top: 3rem;
 }
@@ -407,7 +426,7 @@ tbody tr:hover {
 .footer__brand-description {
   font-size: 13px;
   line-height: 1.7;
-  color: #94a3b8;
+  color: #7FA173;
 }
 
 .footer__social {
@@ -417,7 +436,7 @@ tbody tr:hover {
 }
 
 .footer__social-link {
-  background: #334155;
+  background: #15261d;
   border-radius: var(--radius-sm);
   width: 34px;
   height: 34px;
@@ -430,7 +449,7 @@ tbody tr:hover {
 }
 
 .footer__social-link:hover {
-  background: var(--color-primary);
+  background: var(--color-secondary);
 }
 
 .footer__title {
@@ -449,7 +468,7 @@ tbody tr:hover {
 
 .footer__links a {
   text-decoration: none;
-  color: #94a3b8;
+  color: #7FA173;
   font-size: 13px;
   transition: color 0.2s;
 }
@@ -459,7 +478,7 @@ tbody tr:hover {
 }
 
 .footer__bottom {
-  border-top: 1px solid #334155;
+  border-top: 1px solid #15261d;
   padding-top: 1.5rem;
   display: flex;
   justify-content: space-between;
@@ -470,7 +489,7 @@ tbody tr:hover {
 
 .footer__copyright {
   font-size: 13px;
-  color: #64748b;
+  color: #7FA173;
 }
 
 .footer__bottom-links {
@@ -480,7 +499,7 @@ tbody tr:hover {
 
 .footer__bottom-links a {
   font-size: 13px;
-  color: #64748b;
+  color: #7FA173;
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -526,5 +545,32 @@ tbody tr:hover {
 
   .nav__actions .nav__btn--login {
     display: none;
+  }
+}
+
+.nav__menu {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  width: 100%;
+  background: #1D3428;
+  padding: 10px 0;
+  display: none;
+  flex-direction: column;
+  text-align: center;
+}
+
+.nav__menu.activo {
+  display: flex;
+}
+
+@media (min-width: 769px) {
+  .nav__menu {
+    position: static;
+    display: flex !important;
+    flex-direction: row;
+    background: transparent;
+    padding: 0;
+    width: auto;
   }
 }

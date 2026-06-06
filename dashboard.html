@@ -8,6 +8,7 @@
   <title>Dashboard - Eventos Universitarios</title>
 
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/dash.js"></script>
 
   <!-- Librería Chart.js -->
 
@@ -30,20 +31,23 @@
       </div>
 
       <ul class="nav__menu" id="navMenu">
+        <!-- 
+        ATENCION POR FAVOR INSERTAR EN ESTE VINCULO DE INICIO 
+        LA URL DE LA PAGINA INICIAL PARA PODER REGREAR A LA PAGINA INICIAL DESDE ESTA PAGINA
+         -->
         <li class="nav__item"><a href="#inicio" class="nav__link">Inicio</a></li>
-        <li class="nav__item"><a href="#eventos" class="nav__link">Eventos</a></li>
-        <li class="nav__item"><a href="#agenda" class="nav__link">Agenda</a></li>
-        <li class="nav__item"><a href="#organizadores" class="nav__link">Organizadores</a></li>
-        <li class="nav__item"><a href="#testimonios" class="nav__link">Testimonios</a></li>
-        <li class="nav__item"><a href="#contacto" class="nav__link">Contacto</a></li>
+        <!-- ==================================================================================== -->
+        <li class="nav__item"><a href="#tabla-inscritos" class="nav__link">Tabla de Inscritos</a></li>
+        <li class="nav__item"><a href="#contadores" class="nav__link">Contadores</a></li>
+        <li class="nav__item"><a href="#graficas" class="nav__link">Gráficas</a></li>
+        <li class="nav__item"><a href="#indicadores" class="nav__link">Indicadores</a></li>
+
       </ul>
 
       <div class="nav__actions">
         <a href="#login" class="nav__btn nav__btn--login">Iniciar Sesión</a>
         <a href="#registro" class="nav__btn nav__btn--register">Registrarse</a>
-        <button class="nav__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false"
-          aria-controls="navMenu">
-          <span class="hamburger__line"></span>
+        <button class="nav__hamburger" onclick="mostrarMenu()" id="hamburger"> <span class="hamburger__line"></span>
           <span class="hamburger__line"></span>
           <span class="hamburger__line"></span>
         </button>
@@ -63,7 +67,7 @@
 
     <!-- TABLA DE INSCRITOS -->
 
-    <section>
+    <section id="tabla-inscritos">
 
       <h2>Tabla de Inscritos</h2>
 
@@ -92,7 +96,7 @@
     <!-- CONTADORES -->
 
 
-    <section class="contadores">
+    <section class="contadores" id="contadores">
 
       <h2>Contadores</h2>
 
@@ -118,7 +122,7 @@
     <!-- GRÁFICA -->
 
 
-    <section class="grafica">
+    <section class="grafica" id="graficas">
 
       <h2>Gráfica de Inscritos por Evento</h2>
 
@@ -131,7 +135,7 @@
 
     <!-- INDICADORES -->
 
-    <section class="indicadores">
+    <section class="indicadores" id="indicadores">
 
       <h2>Indicadores</h2>
 

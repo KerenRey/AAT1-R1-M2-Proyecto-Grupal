@@ -13,7 +13,7 @@ function cargarTabla() {
         tabla.innerHTML += `
             <tr>
                 <td>${inscrito.Nombre}</td>
-                <td>N/A</td>
+                <td>${inscrito.Carrera}</td>
                 <td>${inscrito.TEXT}</td>
             </tr>
         `;
@@ -36,7 +36,14 @@ function calcularContadores() {
     }
 
     if (totalCarrerasEl) {
-        totalCarrerasEl.innerText = inscritos.length > 0 ? "1" : "0";
+
+        const carrerasUnicas = new Set(
+            inscritos
+                .map(inscrito => inscrito.Carrera)
+                .filter(carrera => carrera)
+        );
+
+        totalCarrerasEl.innerText = carrerasUnicas.size.toString();
     }
 }
 
