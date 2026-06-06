@@ -93,14 +93,13 @@ body{
 }
 
 .nav__hamburger{
-    display:none;
+    display:flex;
     flex-direction:column;
     gap:5px;
     background:none;
     border:none;
     cursor:pointer;
 }
-
 .hamburger__line{
     width:25px;
     height:3px;
