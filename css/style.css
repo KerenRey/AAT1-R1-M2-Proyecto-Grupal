@@ -1,6 +1,4 @@
-/* ================================================
-   VARIABLES Y RESET
-   ================================================ */
+/*  VARIABLES Y RESET */
 * {
   margin: 0;
   padding: 0;
@@ -38,9 +36,7 @@ body {
   line-height: 1.6;
 }
 
-/* ================================================
-   SKIP LINK
-   ================================================ */
+/* SKIP LINK */
 .skip-link {
   position: absolute;
   top: -40px;
@@ -54,9 +50,7 @@ body {
   top: 0;
 }
 
-/* ================================================
-   HEADER / NAV
-   ================================================ */
+/* HEADER / NAV  */
 .header {
   background: var(--color-white);
   border-bottom: 1px solid var(--color-border);
@@ -171,9 +165,7 @@ body {
   border-radius: 2px;
 }
 
-/* ================================================
-   TÍTULO DASHBOARD
-   ================================================ */
+/* TÍTULO DASHBOARD */
 .titulo-dashboard {
   background: linear-gradient(135deg, #1e40af, #2563eb);
   color: white;
@@ -187,9 +179,7 @@ body {
   letter-spacing: -0.3px;
 }
 
-/* ================================================
-   MAIN CONTENT
-   ================================================ */
+/* MAIN CONTENT */
 main {
   max-width: 1280px;
   margin: 0 auto;
@@ -199,9 +189,7 @@ main {
   gap: 2rem;
 }
 
-/* ================================================
-   SECCIONES GENERALES
-   ================================================ */
+/* SECCIONES GENERALEs */
 main section {
   background: var(--color-white);
   border-radius: var(--radius);
@@ -231,9 +219,7 @@ main section h2::before {
   border-radius: 2px;
 }
 
-/* ================================================
-   TABLA DE INSCRITOS
-   ================================================ */
+/*  TABLA DE INSCRITOS */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -270,9 +256,7 @@ tbody tr:hover {
   transition: background 0.15s;
 }
 
-/* ================================================
-   CONTADORES
-   ================================================ */
+/* CONTADORES */
 .contadores {
   display: grid !important;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -311,17 +295,13 @@ tbody tr:hover {
   font-weight: 500;
 }
 
-/* ================================================
-   GRÁFICA
-   ================================================ */
+/* GRÁFICA */
 .grafica .contenedor-grafica {
   height: 300px;
   position: relative;
 }
 
-/* ================================================
-   INDICADORES
-   ================================================ */
+/*  INDICADORES */
 .indicadores {
   display: grid !important;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -368,9 +348,7 @@ tbody tr:hover {
 .indicadores .card:nth-child(6) { border-left: 3px solid var(--color-danger); }
 .indicadores .card:nth-child(7) { border-left: 3px solid #7c3aed; }
 
-/* ================================================
-   FOOTER
-   ================================================ */
+/* FOOTER */
 .footer {
   background: #1e293b;
   color: #cbd5e1;
@@ -489,9 +467,7 @@ tbody tr:hover {
   color: white;
 }
 
-/* ================================================
-   RESPONSIVE
-   ================================================ */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .nav__menu {
     display: none;
