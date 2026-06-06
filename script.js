@@ -1,63 +1,27 @@
-"use strict";
-const eventos = document.querySelectorAll(".evento");
-const botones = document.querySelectorAll("#paginacion button");
-let paginaActual = 1;
-const eventosPorPagina = 3;
-function mostrarPagina(pagina) {
-    paginaActual = pagina;
-    eventos.forEach((evento, index) => {
-        const inicio = (paginaActual - 1) * eventosPorPagina;
-        const fin = inicio + eventosPorPagina;
-        if (index >= inicio && index < fin) {
-            evento.style.display = "block";
-        }
-        else {
-            evento.style.display = "none";
-        }
-    });
-}
-botones.forEach((boton, index) => {
-    boton.addEventListener("click", () => {
-        mostrarPagina(index + 1);
-    });
-});
-mostrarPagina(1);
-
-/* Fin paginacion */
-
-
-/* Inicio Filtros */
-
-
-// clases de eventos "card-evento"
-/*  TIPOS DE EVENTOS:
-- data-categoria="Tecnologia" o "ADMINITRACIÓN" o "Salud"
-- data-precio="number" 
-- data-diplomado="true" o "false"
-
-<h3 class="titulo-evento" > titulo del evento </h3>
-*/
 document.addEventListener("DOMContentLoaded", () => {
 
     const buscador = document.getElementById("search");
     const filtro = document.getElementById("orden");
-    const eventos = document.querySelectorAll(".card-evento");
+    const contenedor = document.querySelector(".contenedor-cards");
 
-    function filtrarEventos() {      
+    const eventos = Array.from(document.querySelectorAll(".card-evento"));
+
+    //  PAGINACIÓN
+    const eventosPorPagina = 6;
+    let paginaActual = 1;
+
+    const btnNext = document.getElementById("next");
+    const btnPrev = document.getElementById("prev");
+    const spanPagina = document.getElementById("pagina-actual");
+
+    function filtrarEventos() {
 
         const texto = buscador.value.toLowerCase();
         const valorFiltro = filtro.value;
 
-        const contenedor = document.querySelector(".contenedor-cards");
-        const eventosArray = Array.from(eventos);
+        let filtrados = eventos.filter(evento => {
 
-        let filtrados = eventosArray.filter(evento => {
-
-            const tituloElemento = evento.querySelector(".titulo-evento");
-            const titulo = tituloElemento
-                ? tituloElemento.textContent.toLowerCase()
-                : "";
-
+            const titulo = evento.querySelector(".titulo-evento")?.textContent.toLowerCase() || "";
             const categoria = evento.dataset.categoria;
             const precio = parseFloat(evento.dataset.precio);
             const diplomado = evento.dataset.diplomado === "true";
@@ -65,47 +29,77 @@ document.addEventListener("DOMContentLoaded", () => {
             let coincideBusqueda = titulo.includes(texto);
             let coincideFiltro = true;
 
-            // FILTRO POR CATEGORÍA (DINÁMICO)
-            if (
-                valorFiltro === "Tecnologia" ||
-                valorFiltro === "Administracion" ||
-                valorFiltro === "Salud"
-            ) {
+            // CATEGORÍA
+            if (["Tecnologia", "Administracion", "Salud"].includes(valorFiltro)) {
                 coincideFiltro = categoria === valorFiltro;
             }
 
-            // FILTRO POR PRECIO
-            if (valorFiltro === "precio") {
-                coincideFiltro = true; 
-            }
-
-            // FILTRO POR DIPLOMADO
+            // DIPLOMADO
             if (valorFiltro === "diplomado") {
                 coincideFiltro = diplomado;
-            }
-
-            // TODOS
-            if (valorFiltro === "todos") {
-                coincideFiltro = true;
             }
 
             return coincideBusqueda && coincideFiltro;
         });
 
+        // ORDENAR
         if (valorFiltro === "precio") {
             filtrados.sort((a, b) => {
                 return parseFloat(b.dataset.precio) - parseFloat(a.dataset.precio);
             });
         }
 
+        //  TOTAL DE PÁGINAS
+        const totalPaginas = Math.ceil(filtrados.length / eventosPorPagina);
+
+        //  EVITAR PASARSE
+        if (paginaActual > totalPaginas) paginaActual = totalPaginas || 1;
+
+        const inicio = (paginaActual - 1) * eventosPorPagina;
+        const fin = inicio + eventosPorPagina;
+
+        const eventosPagina = filtrados.slice(inicio, fin);
+
+        // LIMPIAR SOLO CARDS 
         contenedor.innerHTML = "";
 
-        filtrados.forEach(evento => {
+        eventosPagina.forEach(evento => {
             contenedor.appendChild(evento);
         });
+
+        // ACTUALIZAR UI
+        spanPagina.textContent = paginaActual;
+
+        // DESHABILITAR BOTONES
+        btnPrev.disabled = paginaActual === 1;
+        btnNext.disabled = paginaActual === totalPaginas;
     }
 
-    buscador.addEventListener("input", filtrarEventos);
-    filtro.addEventListener("change", filtrarEventos);
+    //  BUSCADOR
+    buscador.addEventListener("input", () => {
+        paginaActual = 1;
+        filtrarEventos();
+    });
 
+    //  FILTRO
+    filtro.addEventListener("change", () => {
+        paginaActual = 1;
+        filtrarEventos();
+    });
+
+    //  BOTONES 
+    btnNext.addEventListener("click", () => {
+        paginaActual++;
+        filtrarEventos();
+    });
+
+    btnPrev.addEventListener("click", () => {
+        if (paginaActual > 1) {
+            paginaActual--;
+            filtrarEventos();
+        }
+    });
+
+    // PRIMERA CARGA
+    filtrarEventos();
 });

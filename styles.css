@@ -207,3 +207,50 @@ button{
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
+
+/* Paginacion CSS */
+
+.paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+.btn-pag {
+    padding: 5px 12px;
+    font-size: 13px;
+    border-radius: 15px;
+    border: none;
+    background-color: #7FA173;
+    color: #ECECEC;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* hoover */
+.btn-pag:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* click */
+.btn-pag:active {
+    transform: scale(0.9);
+}
+
+/* deshabilitado */
+.btn-pag:disabled {
+    background: #bbb;
+    cursor: not-allowed;
+}
+
+.pagina-actual {
+    font-size: 13px;
+    font-weight: bold;
+    background: #111;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 10px;
+}
