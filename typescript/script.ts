@@ -2,7 +2,7 @@ interface Inscrito {
     Nombre: string;
     Telefono: string;
     Correo: string;
-    TEXT: string; // Nombre del evento
+    TEXT: string;
     identificacion: string;
     fecha_incio: string;
     fecha_finalizacion: string;
@@ -11,156 +11,354 @@ interface Inscrito {
 
 /* Datos del formulario */
 const inscritos: Inscrito[] =
-    JSON.parse(localStorage.getItem("Inscripcion") || "[]");
+    JSON.parse(
+        localStorage.getItem("Inscripcion") ?? "[]"
+    );
 
 /* Declaración global para Chart.js */
+
 declare var Chart: any;
 
-/* Cargar la tabla de inscritos */
+/*    Cargar la tabla de inscritos */
+
 function cargarTabla(): void {
-    const tabla = document.getElementById("tablaInscritos") as HTMLTableSectionElement;
+
+    const tabla =
+        document.getElementById(
+            "tablaInscritos"
+        ) as HTMLTableSectionElement;
+
     if (!tabla) return;
 
     tabla.innerHTML = "";
 
     inscritos.forEach(inscrito => {
+
         tabla.innerHTML += `
             <tr>
                 <td>${inscrito.Nombre}</td>
-                <td>N/A</td>
+                <td>${inscrito.Correo}</td>
                 <td>${inscrito.TEXT}</td>
             </tr>
         `;
+
     });
+
 }
 
-/* Calcular contadores principales */
+/*   Calcular contadores principales  */
+
 function calcularContadores(): void {
-    const totalInscritosEl = document.getElementById("totalInscritos");
-    const totalEventosEl = document.getElementById("totalEventos");
-    const totalCarrerasEl = document.getElementById("totalCarreras");
 
-    if (totalInscritosEl) {
-        totalInscritosEl.innerText = inscritos.length.toString();
+    const totalInscritos =
+        document.getElementById(
+            "totalInscritos"
+        );
+
+    const totalEventos =
+        document.getElementById(
+            "totalEventos"
+        );
+
+    const eventosDiferentes =
+        document.getElementById(
+            "eventosDiferentes"
+        );
+
+    if (totalInscritos) {
+
+        totalInscritos.innerText =
+            inscritos.length.toString();
+
     }
 
-    if (totalEventosEl) {
-        const eventosUnicos = new Set(inscritos.map(i => i.TEXT).filter(t => t));
-        totalEventosEl.innerText = eventosUnicos.size.toString();
+    const eventosUnicos =
+        new Set(
+            inscritos.map(
+                i => i.TEXT
+            )
+        );
+
+    if (totalEventos) {
+
+        totalEventos.innerText =
+            eventosUnicos.size.toString();
+
     }
 
-    if (totalCarrerasEl) {
-        totalCarrerasEl.innerText = inscritos.length > 0 ? "1" : "0";
+    if (eventosDiferentes) {
+
+        eventosDiferentes.innerText =
+            eventosUnicos.size.toString();
+
     }
+
 }
 
-/* Calcular indicadores estadísticos */
+/* Calcular indicadores estadisticos */
+
 function calcularIndicadores(): void {
-    const eventoPopularEl = document.getElementById("eventoPopular");
-    const ultimoInscritoEl = document.getElementById("ultimoInscrito");
-    const carreraPopularEl = document.getElementById("carreraPopular");
-    const promedioInscritosEl = document.getElementById("promedioInscritos");
-    const eventoMenosPopularEl = document.getElementById("eventoMenosPopular");
-    const primerInscritoEl = document.getElementById("primerInscrito");
 
     if (inscritos.length === 0) return;
 
-    const eventoCounts: { [key: string]: number } = {};
-    inscritos.forEach(i => {
-        if (i.TEXT) {
-            eventoCounts[i.TEXT] = (eventoCounts[i.TEXT] || 0) + 1;
+    const eventoPopular =
+        document.getElementById(
+            "eventoPopular"
+        );
+
+    const ultimoInscrito =
+        document.getElementById(
+            "ultimoInscrito"
+        );
+
+    const promedioInscritos =
+        document.getElementById(
+            "promedioInscritos"
+        );
+
+    const eventoMenosPopular =
+        document.getElementById(
+            "eventoMenosPopular"
+        );
+
+    const primerInscrito =
+        document.getElementById(
+            "primerInscrito"
+        );
+
+    const contadorEventos: {
+        [key: string]: number
+    } = {};
+
+    inscritos.forEach(inscrito => {
+
+        if (contadorEventos[inscrito.TEXT]) {
+
+            contadorEventos[inscrito.TEXT]++;
+
+        } else {
+
+            contadorEventos[inscrito.TEXT] = 1;
+
         }
+
     });
 
-    let maxEvent = "-";
-    let maxCount = -1;
-    let minEvent = "-";
-    let minCount = Infinity;
+    let eventoMayor = "";
+    let cantidadMayor = 0;
 
-    Object.keys(eventoCounts).forEach(event => {
-        const count = eventoCounts[event];
-        if (count > maxCount) {
-            maxCount = count;
-            maxEvent = event;
+    let eventoMenor = "";
+    let cantidadMenor = Infinity;
+
+    for (const evento in contadorEventos) {
+
+        if (
+            contadorEventos[evento] >
+            cantidadMayor
+        ) {
+
+            cantidadMayor =
+                contadorEventos[evento];
+
+            eventoMayor = evento;
+
         }
-        if (count < minCount) {
-            minCount = count;
-            minEvent = event;
+
+        if (
+            contadorEventos[evento] <
+            cantidadMenor
+        ) {
+
+            cantidadMenor =
+                contadorEventos[evento];
+
+            eventoMenor = evento;
+
         }
-    });
 
-    if (eventoPopularEl) eventoPopularEl.innerText = maxEvent;
-    if (eventoMenosPopularEl) eventoMenosPopularEl.innerText = minEvent;
-
-    if (ultimoInscritoEl) {
-        const ultimo = inscritos[inscritos.length - 1];
-        ultimoInscritoEl.innerText = ultimo ? ultimo.Nombre : "-";
     }
 
-    if (primerInscritoEl) {
-        const primero = inscritos[0];
-        primerInscritoEl.innerText = primero ? primero.Nombre : "-";
+    if (eventoPopular) {
+
+        eventoPopular.innerText =
+            eventoMayor;
+
     }
 
-    if (carreraPopularEl) {
-        carreraPopularEl.innerText = "N/A";
+    if (eventoMenosPopular) {
+
+        eventoMenosPopular.innerText =
+            eventoMenor;
+
     }
 
-    if (promedioInscritosEl) {
-        const uniqueEventsCount = Object.keys(eventoCounts).length;
-        const promedio = uniqueEventsCount > 0 ? (inscritos.length / uniqueEventsCount).toFixed(1) : "0";
-        promedioInscritosEl.innerText = promedio;
+    if (primerInscrito) {
+
+        primerInscrito.innerText =
+            inscritos[0].Nombre;
+
     }
+
+    if (ultimoInscrito) {
+
+        ultimoInscrito.innerText =
+            inscritos[
+                inscritos.length - 1
+            ].Nombre;
+
+    }
+
+    if (promedioInscritos) {
+
+        const promedio =
+            inscritos.length /
+            Object.keys(
+                contadorEventos
+            ).length;
+
+        promedioInscritos.innerText =
+            promedio.toFixed(1);
+
+    }
+
 }
 
-/* Inicializar gráfica con Chart.js */
+/* Inicializar gráfica con CHART.JS */
+
 function inicializarGrafica(): void {
-    const canvas = document.getElementById("graficaEventos") as HTMLCanvasElement;
+
+    const canvas =
+        document.getElementById(
+            "graficaEventos"
+        ) as HTMLCanvasElement;
+
     if (!canvas) return;
 
-    const eventoCounts: { [key: string]: number } = {};
-    inscritos.forEach(i => {
-        if (i.TEXT) {
-            eventoCounts[i.TEXT] = (eventoCounts[i.TEXT] || 0) + 1;
+    const contadorEventos: {
+        [key: string]: number
+    } = {};
+
+    inscritos.forEach(inscrito => {
+
+        if (contadorEventos[inscrito.TEXT]) {
+
+            contadorEventos[
+                inscrito.TEXT
+            ]++;
+
+        } else {
+
+            contadorEventos[
+                inscrito.TEXT
+            ] = 1;
+
         }
+
     });
 
-    const labels = Object.keys(eventoCounts);
-    const data = Object.values(eventoCounts);
+    const etiquetas =
+        Object.keys(
+            contadorEventos
+        );
 
-    if (labels.length === 0) return;
+    const datos =
+        Object.values(
+            contadorEventos
+        );
+
+    if (etiquetas.length === 0) return;
 
     new Chart(canvas, {
-        type: 'bar',
+
+        type: "bar",
+
         data: {
-            labels: labels,
-            datasets: [{
-                label: 'Inscritos por Evento',
-                data: data,
-                backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        stepSize: 1
-                    }
+
+            labels: etiquetas,
+
+            datasets: [
+
+                {
+
+                    label:
+                        "Inscritos por Evento",
+
+                    data: datos,
+
+                    backgroundColor:
+                        "rgba(54, 162, 235, 0.5)",
+
+                    borderColor:
+                        "rgba(54, 162, 235, 1)",
+
+                    borderWidth: 1
+
                 }
+
+            ]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            maintainAspectRatio: false,
+
+            scales: {
+
+                y: {
+
+                    beginAtZero: true,
+
+                    ticks: {
+
+                        stepSize: 1
+
+                    }
+
+                }
+
             }
+
         }
+
     });
+
 }
 
-/* Ejecutar al cargar la página */
-document.addEventListener("DOMContentLoaded", () => {
-    cargarTabla();
-    calcularContadores();
-    calcularIndicadores();
-    inicializarGrafica();
-});
+/* MENÚ HAMBURGUESA */
+
+function mostrarMenu(): void {
+
+    const menu =
+        document.getElementById(
+            "navMenu"
+        );
+
+    if (menu) {
+
+        menu.classList.toggle(
+            "activo"
+        );
+
+    }
+
+}
+
+/* Ejecutar al carga la página*/
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        cargarTabla();
+
+        calcularContadores();
+
+        calcularIndicadores();
+
+        inicializarGrafica();
+
+    }
+);
