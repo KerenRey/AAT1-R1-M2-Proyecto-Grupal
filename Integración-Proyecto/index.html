@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="src/css/styles-Principal.css">
     <link rel="stylesheet" href="src/css/style-dash.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 
 <body>
@@ -46,8 +47,8 @@
     <main>
 
         <section class="hero" id="inicio">
-            <h1>Descubre Eventos Universitarios</h1>
-            <p>
+            <h1 class="hero__title animate__animated animate__fadeInDown">Descubre Eventos Universitarios</h1>
+            <p class="hero__subtitle animate__animated animate__fadeInUp">
                 Conecta, aprende y crece con la comunidad universitaria.
             </p>
 
@@ -81,6 +82,7 @@
                         Aprende los fundamentos de la inteligencia artificial.
                     </p>
 
+                    <button class="btn-modal"onclick="abrirModal('Workshop de Inteligencia Artificial','Participa en una experiencia práctica donde conocerás herramientas modernas de inteligencia artificial, casos de uso reales y tendencias tecnológicas que están transformando la industria.')">Ver Detalle</button>
 
                 </article>
 
@@ -98,7 +100,7 @@
                         Música, arte y cultura para toda la comunidad.
                     </p>
 
-
+                    <button class="btn-modal"onclick="abrirModal('Festival Cultural Universitario','Disfruta de presentaciones musicales en vivo, exposiciones artísticas, concursos culturales y actividades recreativas organizadas por estudiantes de distintas facultades.')">Ver Detalle</button>
 
                 </article>
 
@@ -116,7 +118,7 @@
                         24 horas creando soluciones tecnológicas.
                     </p>
 
-
+                   <button class="btn-modal"onclick="abrirModal('Torneo Deportivo Interfacultades','Competencia deportiva entre todas las facultades.')">Ver Detalle</button>
 
                 </article>
 
@@ -280,7 +282,6 @@
 
     </div>
   </footer>
-
 </body>
 <script src="src/js/paginaPrincipal.js"></script>
 

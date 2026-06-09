@@ -134,6 +134,22 @@ body{
     transition:.3s;
 }
 
+.btn-modal{
+    display:block;
+    width:50%;
+    margin:20px auto 0;
+    background:#1D3428;
+    color:white;
+    text-decoration:none;
+    padding:10px;
+    border:none;
+
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+    text-align:center;
+}
+
 .btn:hover{
     background:#15261d;
     transform:translateY(-3px);
@@ -202,6 +218,7 @@ body{
 .event-card p{
     padding:0 15px 15px;
 }
+
 
 .testimonials__grid{
     display:flex;

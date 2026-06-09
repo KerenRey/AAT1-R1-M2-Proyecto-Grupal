@@ -47,3 +47,13 @@ function enviar(){
     }
 
 }
+
+function abrirModal(titulo, descripcion){
+
+    Swal.fire({
+        title: titulo,
+        text: descripcion,
+        icon: "info"
+    });
+
+}
